@@ -6,14 +6,14 @@ const port = 8000
 
 // 2. MONGOOSE CONFIG
 // This will fire our mongoose.connect statement to initialize our database connection
-require("./server/config/mongoose.config");
+require("./config/mongoose.config");
 
 // 3. CONFIGURE EXPRESS
 app.use(express.json(), express.urlencoded({ extended: true }), cors());
 
 // 4. ROUTES
 // ## Add more as needed per route
-const AllMyUserRoutes = require("./server/routes/user.routes");
+const AllMyUserRoutes = require("./routes/user.routes");
 AllMyUserRoutes(app);
 
 // 5. RUN EXPRESS SERVER

@@ -3,7 +3,7 @@ const UserController = require("../controllers/user.controller");
 
 module.exports = app => {
   // READ ALL
-  app.get(    "/api/users",    UserController.findAllUsers);
+  // app.get(    "/api/users",    UserController.findAllUsers);
   // CREATE
   app.post(   "/api/users",     UserController.createNewUser);
   // READ ONE
