@@ -31,3 +31,24 @@ module.exports.deleteAnExistingUser = (req, res) => {
     .then( delResult => res.json( delResult ))
     .catch( err => res.status(406).json( { message: "Something went wrong", err } ));
 };
+
+module.exports.register = (req,res) => {
+  User.exists({email : req.body.email})
+    .then(userExists => {
+      if(userExits){
+        return Promise.reject({
+          errors: {"duplicate": "Email already taken"}
+        })
+      }
+      else{
+        const user = new User(req.body)
+        return user.save()
+      }
+    })
+    .then(user => res.json(user))
+    .catch(err => res.status(400).json(err))
+}
+
+module.exports.login = (req,res) => {
+
+}

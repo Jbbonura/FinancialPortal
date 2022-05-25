@@ -1,6 +1,6 @@
 // import mongoose
 const mongoose = require("mongoose");
-
+const bcrypt = require("bcrypt")
 const UserSchema = new mongoose.Schema(
 	{
 		name: {
@@ -15,7 +15,10 @@ const UserSchema = new mongoose.Schema(
 			type: String,
 			// Optional required field, optional required statement
 			required: [true, "Email is required"],
-			
+			validate: {
+			validator: val => /^([\w-\.]+@([\w-]\.)+[\w-]+)?$/.test(val),
+			message: "Please enter a valid email"
+			}
 		},
 		password: {
 			// Required type String
@@ -37,6 +40,26 @@ const UserSchema = new mongoose.Schema(
 	// Include createdAt & updatedAt
 	{ timestamps: true },
 );
+// Create a temporary confrim passwrod attribute in our schema
+UserSchema.virtual('confirmPassword')
+	.get(() => this._confirmPassword)
+	.set(value => this._confirmPassword = value);
+
+// Create validations for the confirm password
+UserSchema.pre("validate", function(next){
+	if(this.password !== this.confirmPassword){
+		this.invalidate("confirmPassword", "Passwords must match")
+	}
+	next()
+})
+// Before saving the suer, swap out password with hashed password
+UserSchema.pre("save", function(next){
+	bcrypt.hash(this.password, 10)
+		.then(hashedPassword => {
+			this.password = hashedPassword
+			next()
+		})
+})
 
 // "User" will be pluralised and lowercased to be used as your collection.
 // Optional third argument can be another string to explicitly choose collection name.
