@@ -10,6 +10,7 @@ function App() {
     <BrowserRouter>
     <div>
     <SideMenu />
+    <Dashboard />
     </div>
       {/* <fieldset>
         <legend>App.js</legend>

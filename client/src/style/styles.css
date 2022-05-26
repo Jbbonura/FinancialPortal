@@ -2,6 +2,18 @@
   box-sizing: border-box;
 }
 
+html, body{
+  padding:0px;
+  margin:0px;
+  background: #27272e;
+  font-family: 'Karla', sans-serif;
+  width:100vw;
+}
+body * {
+  margin:0;
+  padding:0;
+}
+
 
 /*sidebar*/
 *,
@@ -18,15 +30,14 @@ body {
   font-size: 1.2rem;
   font-weight: normal;
   line-height: 1.6;
-  color: #252a32;
-  background: rgba(0, 0, 0, 0.1);
+
 }
 .topBar {
   height: 20vh;
   display: flex;
   justify-content: center;
   align-content: center;
-  background: #110135;
+  background: #373740;
 }
 .menuBar {
   display: flex;
@@ -51,19 +62,19 @@ body {
   height: 100%;
   width: 260px;
   position: fixed;
-  background: #110135;
+  background: #373740;
   transition: all 0.35s ease-out;
 }
-.sideMenu a {
+/* .sideMenu a {
   display: flex;
   text-decoration: none;
   font-weight: 600;
   color:white;
+  
+} */
+/* .sideMenu a:hover {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.sideMenu a:hover {
-  color: rgb(40, 0, 148);
-}
+} */
 
 .navItems{
   display: flex;
@@ -71,42 +82,8 @@ body {
   justify-content: space-evenly;
 }
 
-/*sidebar end*/
-
-/*images*/
-.logo{
-  height: 70px;
-  
-}
-
-
-/*navbar*/
-.titleBox{
-  display: flex;
-  justify-content: center;
-}
-
-.title-header{
-  display: flex;
-  gap: 1em;
-  justify-content: center;
-  align-items: center;
-}
-
 
 /*dropdown*/
-html, body{
-  padding:0px;
-  margin:0px;
-  background: #27272e;
-  font-family: 'Karla', sans-serif;
-  width:100vw;
-}
-body * {
-  margin:0;
-  padding:0;
-}
-
 /* HTML Nav Styles */
 /* HTML Nav Styles */
 /* HTML Nav Styles */
@@ -133,13 +110,11 @@ menu .menuitem a { white-space:nowrap; display:block; }
 menu:hover > .menuitem{
   opacity:1;
 }
+
 .navSelect > menu > .menuitem .menuitem menu {
   transform:translateX(100%);
   top:0; right:0;
 }
-/* User Styles Below Not Required */
-/* User Styles Below Not Required */
-/* User Styles Below Not Required */
 
 .navSelect { 
   margin-top: 40px;
@@ -147,18 +122,28 @@ menu:hover > .menuitem{
   justify-content: center;
 }
 
+.navSelect-active > menu a{
+  visibility: hidden;
+}
+
 .navSelect a {
-  background:#110135;
+  background:#373740;
   color:#FFF;
-  min-width:190px;
+  width:200px;
   transition: background 0.5s, color 0.5s, transform 0.5s;
   margin:0px 0px 6px 0px;
   padding:20px 40px 20px 20px;
   box-sizing:border-box;
   border-radius:3px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
   position:relative;
-  
+  display: flex;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navSelect a:hover{
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 80%;
 }
 
 .navSelect a:hover:before {
@@ -211,3 +196,32 @@ menu:hover > .menuitem{
 }
 
 /*dropdown end*/
+
+/*sidebar end*/
+
+/*images*/
+.logo{
+  height: 70px;
+  
+}
+
+
+/*navbar*/
+.titleBox{
+  display: flex;
+  justify-content: center;
+}
+
+.title-header{
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuBar a {
+  text-decoration: none;
+  color: white;
+}
+
+

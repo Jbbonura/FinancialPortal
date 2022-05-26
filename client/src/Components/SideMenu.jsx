@@ -26,7 +26,6 @@ export default function SideMenu() {
 
 
 
-
   return (
     <>
       <header className="topBar">
@@ -35,7 +34,6 @@ export default function SideMenu() {
             <div className='title-header'>
             <img className='logo' src={Logo} alt="" />  
             <h2>Financial Portal</h2>
-            <Link to='/'>Logout</Link>
             </div>
           </div>
           <span ref={domeNode} className="navIcon" onClick={() => {open(isSideMenu)}} >
@@ -49,44 +47,43 @@ export default function SideMenu() {
               )}
             </svg>
           </span>
+          <Link to='/'>Logout</Link>
         </div>
         <div className="sideMenu" style={{ left: isSideMenu ? '0' : '-175px' }}>
-            
-            <div className="navSelect" >
+            <div className={`navSelect ${isSideMenu ? '': 'navSelect-active'}`} >
             <menu>
               <div className='menuItem' >
                 <div className='navItems'>
-                  <a href="#">Dashboard</a>
+                  <a href="#">Dashboard </a>
                   <BiHomeAlt size={28} color="white" />
                 </div>
-                  <menu>
-                    <div className='menuItem'>
-                      <a href="#">about</a>
-                    </div>
-                    <div className='menuItem'>
-                      <a href="#">about</a>
-                    </div>
-                  </menu>
+            <menu>
+              <div className='menuItem'>
+                <a href="#">about</a>
+              </div>
+              <div className='menuItem'>
+                <a href="#">about</a>
               </div>
             </menu>
-
+              </div>
+            </menu>
             <menu>
               <div className='menuItem' >
                 <div className='navItems'>
-                  <a href="#">Bank Accounts</a>
+                  <a href="#">Bank Accounts </a>
                   <MdAccountBalance size={28} color="white" />
                 </div>
-                  <menu>
-                    <div className='menuItem'>
-                      <a href="#">about</a>
-                    </div>
-                    <div className='menuItem'>
-                      <a href="#">about</a>
-                    </div>
-                  </menu>
+            <menu>
+              <div className='menuItem'>
+                <a href="#">about</a>
+              </div>
+              <div className='menuItem'>
+                <a href="#">about</a>
               </div>
             </menu>
-          </div> 
+              </div>
+            </menu>
+          </div>
         </div>
       </header>
     </>
