@@ -1,6 +1,6 @@
 // import mongoose
 const mongoose = require("mongoose");
-
+const UserSchema = require("../models/user.model")
 const HouseholdSchema = new mongoose.Schema(
 	{
 		name: {

@@ -9,7 +9,7 @@ const port = 8000
 require("./config/mongoose.config");
 
 // 3. CONFIGURE EXPRESS
-app.use(express.json(), express.urlencoded({ extended: true }), cors());
+app.use(express.json(), express.urlencoded({ extended: true }), cors({credentials:true, origin:"http://localhost:3000"}));
 
 // 4. ROUTES
 // ## Add more as needed per route

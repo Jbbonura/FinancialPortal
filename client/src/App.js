@@ -1,23 +1,17 @@
 import Sidebar from './Components/SideMenu'
 import {BrowserRouter, Routes, Route} from "react-router-dom"
+import Login from './Views/Login';
+import Register from './Views/Register';
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
-    <nav>
-      
-    </nav>
-    <div>
-    <Sidebar />
-    </div>
-      {/* <fieldset>
-        <legend>App.js</legend>
-        
+      <div>
         <Routes>
-          
-
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
-      </fieldset> */}
+      </div>
     </BrowserRouter>
   );
 }

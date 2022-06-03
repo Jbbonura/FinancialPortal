@@ -1,6 +1,49 @@
 // import mongoose
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt")
+
+const TransactionSchema = new mongoose.Schema(
+	{
+		amount: {
+			type: Number,
+		},
+		type: {
+			// Required type String
+			type: String
+		},
+		memo: {
+			// Required type String
+			type: String
+		},
+	},
+	// Include createdAt & updatedAt
+	{ timestamps: true },
+);
+
+const BankAccountSchema = new mongoose.Schema(
+	{
+		name: {
+			// Required type String
+			type: String,
+			// Optional required field, optional required statement
+			required: [true, "Name is required"],
+			
+		},
+		type: {
+			// Required type String
+			type: String,
+			// Optional required field, optional required statement
+			required: [true, "Transaction is required"],
+			
+		},
+		
+		// Nested Documents. Ex: friends: [UserSchema]
+		transactions: [TransactionSchema]
+	},
+	// Include createdAt & updatedAt
+	{ timestamps: true },
+);
+
 const UserSchema = new mongoose.Schema(
 	{
 		name: {
